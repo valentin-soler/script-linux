@@ -11,6 +11,7 @@ argument.sh met le contenu de oldfile dans newfile via la commande cat
 ## get_logs.sh
 Usage : get_logs.sh
 get_logs.sh récupére les logs de connection sur la machine et compte le nombre de connection sur cette derniére, il en fait une archive toute les 30 minutes
+Il enregistre le fichier dans le dossier temporaire (/tmp/) pour en faire une archive qu'il stock dans ~/Backup/. Il peut être utilisé pour une tache CRON
 
 ## hello_bye.sh
 
