@@ -8,6 +8,10 @@ Add.sh ajoute number1 à number2 et renvoie le résultat
 Usage : argument.sh newfile oldfile
 argument.sh met le contenu de oldfile dans newfile via la commande cat
 
+## get_logs.sh
+Usage : get_logs.sh
+get_logs.sh récupére les logs de connection sur la machine et compte le nombre de connection sur cette derniére, il en fait une archive toute les 30 minutes
+
 ## hello_bye.sh
 
 Usage : hello_bye.sh hello/bye
