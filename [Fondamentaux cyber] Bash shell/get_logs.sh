@@ -1,4 +1,4 @@
-# shellcheck disable=SC2148
+#!/bin/bash
 #Création du nom du fichier
 date_file=$(date --iso-8601=minutes)
 filename="number_connection-${date_file:8:2}-${date_file:5:2}-${date_file:0:4}-${date_file:11:5}"
