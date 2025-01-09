@@ -1,10 +1,11 @@
 #!/bin/bash
 file="Shell_Userlist.csv" #Nom du fichier contenant les utilisateurs
 #Il doit ignorer la 1ére ligne !!
-ignore_line="True"
+nb_ligne_ignore=$(cat nb_list.txt)
+nb_ligne=1
 while IFS= read -r line; do
-    if [ $ignore_line == "True" ]; then
-        ignore_line="False"
+    if [ $nb_ligne -le $nb_ligne_ignore ]; then
+        nb_ligne=$((nb_ligne+1))
     else
         #On récupére les données pour chaque utilisateur
         prenom=$(echo $line | cut -d ',' -f 2)
@@ -12,13 +13,11 @@ while IFS= read -r line; do
         mdp=$(echo $line | cut -d ',' -f 4)
         mdp_hashed=$(openssl passwd -1 $mdp) #Useradd veut un mdp hashé
         type_user=$(echo $line | cut -d ',' -f 5)
-        username=$((prenom+nom)) #On crée le nom d'utilisateur avec le prénom et nom de l'utilisateur (on colle le nom et prénom)
+        username="${prenom}${nom}" #On crée le nom d'utilisateur avec le prénom et nom de l'utilisateur (on colle le prénom et nom)
         #On crée l'utilisateur avec les infos récupérées
-        useradd -m -p "$mdp_hashed" $username
-        #-m -> Repertoire home -p -> POur le mdp 
-        #On met les droits superuser au Adminitrateur
-        if [ "$type_user" = "Admin" ]; then
-            usermod -aG sudo $username
-        fi
+        echo $type_user
+        nb_ligne=$((nb_ligne+1))
     fi
 done < "$file"
+
+echo $(($nb_ligne - 1)) > "nb_list.txt"
