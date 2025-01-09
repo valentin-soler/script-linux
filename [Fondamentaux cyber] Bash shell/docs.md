@@ -1,3 +1,7 @@
+## accessrights.sh
+Usage : accessrights.sh
+Le script crée les nouveaux utilisateur automatiquement via la liste en format CSV, de base le chiffre dans nb_list.txt est à 1 (il sert a stocker le nb de ligne et ou reprendre dans le fichier pour ne pas recrée les utilisateur en boucle !)
+
 ## add.sh
 
 Usage : add.sh number1 number2
