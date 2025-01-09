@@ -15,7 +15,12 @@ while IFS= read -r line; do
         type_user=$(echo $line | cut -d ',' -f 5)
         username="${prenom}${nom}" #On crée le nom d'utilisateur avec le prénom et nom de l'utilisateur (on colle le prénom et nom)
         #On crée l'utilisateur avec les infos récupérées
-        echo $type_user
+        sudo useradd -m -p "$mdp_hashed" $username
+        #-m -> Repertoire home -p -> POur le mdp 
+        #On met les droits superuser au Adminitrateur
+        if [ "$type_user" = "Admin" ]; then
+            sudo usermod -aG sudo $username
+        fi
         nb_ligne=$((nb_ligne+1))
     fi
 done < "$file"
