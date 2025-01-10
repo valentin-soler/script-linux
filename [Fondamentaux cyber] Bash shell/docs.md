@@ -36,3 +36,7 @@ myloop.sh renvoie le message "Je suis un script qui arrive a faire une boucle $i
 
 Usage : myupdate.sh
 myupdate.sh met a jours les repos et les packet sur le systéme
+
+## verifmail.sh
+Usage : verifmail.sh <mail a vérifier>
+verifmail : vérifie si le mail est un mail valide du point de vu gramaticale
