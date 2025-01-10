@@ -40,3 +40,8 @@ myupdate.sh met a jours les repos et les packet sur le systéme
 ## verifmail.sh
 Usage : verifmail.sh <mail a vérifier>
 verifmail : vérifie si le mail est un mail valide du point de vu gramaticale
+
+## verif_tel_number.sh
+
+Usage : verif_tel_number.sh <téléphone a vérifier>
+Il vérifie si un numéro de téléphone est écris correctement au format international avec le +
